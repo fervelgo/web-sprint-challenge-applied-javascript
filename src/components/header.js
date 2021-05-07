@@ -4,7 +4,7 @@ const Header = (title, date, temp) => {
   const dateNews = document.createElement('span');
   const titleNews = document.createElement('h1');
   const tempNews = document.createElement('span');
-debugger;
+
   header.classList.add('.header');
   dateNews.classList.add('.date');
   tempNews.classList.add('.temp');

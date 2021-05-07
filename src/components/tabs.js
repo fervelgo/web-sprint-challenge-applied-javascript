@@ -14,7 +14,7 @@ const Tabs = (topics) => {
   // </div>
   //
 }
-
+sertwert
 const tabsAppender = (selector) => {
   // TASK 4
   // ---------------------
