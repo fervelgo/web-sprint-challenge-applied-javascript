@@ -3,12 +3,12 @@ import axios from "axios";
 const Tabs = (topics) => {
 
   const topicsElement = document.createElement('div');
-  topicsElement.classList.add('.topics');
+  topicsElement.classList.add('topics');
 
-  topics.forEach((item) => {
-    item.document.createElement('div');
-    item.classList.add('.tab');
-    item.textContent = item;
+  topics.forEach((itemText) => {
+    const item = document.createElement('div');
+    item.classList.add('tab');
+    item.textContent = itemText;
     topicsElement.appendChild(item);
   })
 
@@ -31,12 +31,18 @@ const Tabs = (topics) => {
   //
 }
 
+
 const tabsAppender = (selector) => {
-  selector = document.querySelector('.tabs-container');
+  const tabsCont = document.querySelector(selector);
   axios
   .get('https://lambda-times-api.herokuapp.com/topics')
-  .then()
-  .catch()
+  .then((res) => {
+    console.log(res);
+    tabsCont.appendChild(Tabs(res.data.topics));
+  })
+  .catch((err) =>{
+    console.log(err)
+  })
   
   // TASK 4
   // ---------------------
