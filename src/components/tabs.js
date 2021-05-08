@@ -37,7 +37,6 @@ const tabsAppender = (selector) => {
   axios
   .get('https://lambda-times-api.herokuapp.com/topics')
   .then((res) => {
-    console.log(res);
     tabsCont.appendChild(Tabs(res.data.topics));
   })
   .catch((err) =>{
