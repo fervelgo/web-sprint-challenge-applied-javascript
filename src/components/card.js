@@ -40,18 +40,39 @@ const Card = ({ headline, authorPhoto, authorName }) => {
     author.classList.add('author');
     authorImgCont.classList.add('img-container');
 
-    headlineData.textContainer = headline;
+    headlineData.textContent = headline;
     authorImg.src = authorPhoto;
     authorNameData.textContent = authorName;
 
     return cardHolder
-
-    console.log(cardHolder)
   }
 
+    
 
 const cardAppender = (selector) => {
 
+
+  const articles = axios.get('https://lambda-times-api.herokuapp.com/articles')
+ .then((res) => {
+  const javascriptArray = 
+  {
+   headline: res.data.articles.javascript[0].headline,
+   authorPhoto: res.data.articles.javascript[0].authorPhoto,
+   authorName: res.data.articles.javascript[0].authorName
+  }
+  const insertCard = document.querySelector(selector)
+  const newArticle = Card(javascriptArray)
+  insertCard.appendChild(newArticle)
+  console.log(newArticle)
+  console.log(javascriptArray)
+   })
+     .catch(err =>{
+       console.log(err)
+     });
+
+
+
+    
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
@@ -60,6 +81,7 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+
 }
 
 export { Card, cardAppender }
