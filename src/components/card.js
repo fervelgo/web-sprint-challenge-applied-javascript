@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const Card = (article) => {
+const Card = ({ headline, authorPhoto, authorName }) => {
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -23,31 +23,32 @@ const Card = (article) => {
 
 
     const cardHolder = document.createElement('div');
-    const headline = document.createElement('div');
+    const headlineData = document.createElement('div');
     const author = document.createElement('div');
     const authorImgCont = document.createElement('div');
     const authorImg = document.createElement('img');
-    const authorName =document.createElement('span');
+    const authorNameData =document.createElement('span');
 
-    cardHolder.appendChild(headline);
+    cardHolder.appendChild(headlineData);
     cardHolder.appendChild(author);
     author.appendChild(authorImgCont);
     authorImgCont.appendChild(authorImg);
-    author.appendChild(authorName);
+    author.appendChild(authorNameData);
 
     cardHolder.classList.add('card');
-    headline.classList.add('headline');
+    headlineData.classList.add('headline');
     author.classList.add('author');
     authorImgCont.classList.add('img-container');
 
-    // headline.textContainer = item.headline
-    // authorImg.src = item.authorImg
-    // authorName.textContent = 'By ' + item.authorName;
+    headlineData.textContainer = headline;
+    authorImg.src = authorPhoto;
+    authorNameData.textContent = authorName;
 
-    return cardHolder;
+    return cardHolder
+
+    console.log(cardHolder)
   }
 
-aasdhsdhs
 
 const cardAppender = (selector) => {
 
